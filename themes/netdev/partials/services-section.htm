@@ -1,0 +1,63 @@
+[viewBag]
+==
+<?php
+use Atashka\Netdev\Models\Services;
+
+function onStart()
+{
+    $this['services'] = Services::orderBy('created_at', 'desc')->get();
+}
+?>
+==
+<section class="section__wrapper services-section__wrapper">
+    <div class="container">
+      <div class="section services-section">
+        <div class="services-section__content">
+          <h1 class="section__title">Услуги <span>NetDEV</span></h1>
+
+          <p class="section__text">
+            Агентство Digital Qala предоставляет широкий спектр услуг: от
+            дизайна до разработки, а также сопровождения сайта.
+          </p>
+
+          <button class="services-section__button">
+            <span>Заказать</span>
+          </button>
+        </div>
+
+        <ul class="services-section__list">
+
+
+    {% for service in services %}
+        <h3>{{ post.title }}</h3>
+        {{ post.content }}
+
+
+
+
+
+        <li class="services-section__list__item">
+            <div class="services-section__list__item__title">
+              <h2>{{ service.name }}</h2>
+
+              <div class="services-section__list__item__title__icon">
+                <i class="mdi mdi-arrow-right"></i>
+              </div>
+            </div>
+            <div class="services-section__list__item__content">
+              <ul>
+                {% for items in service.data %}
+                <li>{{ items.item }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </li>
+
+
+    {% endfor %}
+
+
+        </ul>
+      </div>
+    </div>
+  </section>

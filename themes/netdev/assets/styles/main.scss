@@ -1,0 +1,14 @@
+/* CONFIG */
+@import "config/vars";
+
+/* BASE */
+@import "base/fonts";
+@import "base/mixins";
+@import "base/layout";
+
+/* COMPONENTS */
+@import "components/header";
+@import "components/footer";
+
+/* PAGES */
+@import "pages/index";

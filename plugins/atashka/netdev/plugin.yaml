@@ -1,0 +1,24 @@
+plugin:
+    name: 'atashka.netdev::lang.plugin.name'
+    description: 'atashka.netdev::lang.plugin.description'
+    author: atashka
+    icon: oc-icon-adn
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Service
+        url: atashka/netdev/servicecontroller
+        icon: icon-server
+        sideMenu:
+            side-menu-item:
+                label: Portfolio
+                url: atashka/netdev/portfoliocontroller
+                icon: icon-folder
+            side-menu-item2:
+                label: 'Our services'
+                url: atashka/netdev/ourservicescontroller
+                icon: icon-list-ul
+    main-menu-item2:
+        label: Contact
+        url: atashka/netdev/contactcontroller
+        icon: icon-comment

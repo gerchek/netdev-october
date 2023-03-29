@@ -1,0 +1,10 @@
+name: OurServicesController
+form: $/atashka/netdev/models/ourservices/fields.yaml
+modelClass: Atashka\Netdev\Models\OurServices
+defaultRedirect: atashka/netdev/ourservicescontroller
+create:
+    redirect: 'atashka/netdev/ourservicescontroller/update/:id'
+    redirectClose: atashka/netdev/ourservicescontroller
+update:
+    redirect: atashka/netdev/ourservicescontroller
+    redirectClose: atashka/netdev/ourservicescontroller

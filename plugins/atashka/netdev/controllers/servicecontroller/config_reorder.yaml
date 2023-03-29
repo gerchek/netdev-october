@@ -1,0 +1,4 @@
+title: ServiceController
+modelClass: Atashka\Netdev\Models\Services
+toolbar:
+    buttons: reorder_toolbar

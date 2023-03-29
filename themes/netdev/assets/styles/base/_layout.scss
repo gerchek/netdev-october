@@ -1,0 +1,34 @@
+@import "reset";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Bahnschrift, sans-serif;
+  color: var(--theme-text-color);
+  font-size: clamp(0.75rem, 0.4375rem + 1vw, 1rem);
+  position: relative;
+
+  a {
+    color: var(--theme-text-color);
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font-family: Bahnschrift, sans-serif;
+    color: var(--theme-text-color);
+    font-size: clamp(0.75rem, 0.4375rem + 1vw, 1rem);
+  }
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 10px;
+}

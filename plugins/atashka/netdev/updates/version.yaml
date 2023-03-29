@@ -1,0 +1,17 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table atashka_netdev_services'
+    - builder_table_create_atashka_netdev_services.php
+1.0.3:
+    - 'Created table atashka_netdev_portfolio'
+    - builder_table_create_atashka_netdev_portfolio.php
+1.0.4:
+    - 'Created table atashka_netdev_contact'
+    - builder_table_create_atashka_netdev_contact.php
+1.0.5:
+    - 'Updated table atashka_netdev_contact'
+    - builder_table_update_atashka_netdev_contact.php
+1.0.6:
+    - 'Created table atashka_netdev_our_services'
+    - builder_table_create_atashka_netdev_our_services.php

@@ -1,0 +1,299 @@
+url = "/"
+layout = "master"
+title = "main"
+
+[contact]
+==
+<?php
+use Atashka\Netdev\Models\OurServices;
+
+function onStart()
+{
+    $this['ourServices'] = OurServices::orderBy('created_at', 'desc')->get();
+}
+?>
+==
+{% partial "header" %}
+
+<main>
+  <section class="section__wrapper landing-section__wrapper">
+    <div class="container">
+      <div class="section landing-section">
+        <div class="landing-section__image">
+          <img src="{{ '/assets/images/landing-image.png'|theme }}" alt="" />
+        </div>
+
+        <div class="landing-section__content">
+          <h1 class="landing-section__title">
+            Воплотите свое видение в жизнь с netdev
+          </h1>
+
+          <p class="landing-section__text">
+            Мы специализируемся на создании решений с чистым кодом, которые
+            воплощают ваше видение в жизнь. Имея 10 опытных разработчиков и
+            5 лет опыта работы на рынке, вы можете быть уверены, что ваш
+            проект в надежных руках.
+          </p>
+
+          <section
+            class="splide landing-section__slider"
+            aria-label="Splide Basic HTML Example"
+          >
+            <div class="splide__track">
+              <ul class="splide__list">
+
+              {% for data in ourServices %}
+                <li class="splide__slide landing-section__slider__item">
+                  <h2 class="landing-section__slider__item__title">
+                    {{ data.name }}
+                  </h2>
+
+                  <p class="landing-section__slider__item__text">
+                   {{ data.text }}
+                  </p>
+                </li>
+            {% endfor %}
+                
+              </ul>
+            </div>
+
+            <div class="splide__arrows landing-section__slider__arrows">
+              <button
+                class="splide__arrow splide__arrow--prev landing-section__slider__arrow landing-section__slider__arrow--prev"
+              >
+                <i class="mdi mdi-chevron-left"></i>
+              </button>
+
+              <div class="landing-section__slider__pagination">
+                <span class="current"></span>
+                <span>/</span>
+                <span class="total">{{ ourServices.count() }}</span>
+              </div>
+
+              <button
+                class="splide__arrow splide__arrow--next landing-section__slider__arrow landing-section__slider__arrow--next"
+              >
+                <i class="mdi mdi-chevron-right"></i>
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% partial "services-section" %}
+
+
+  <section class="section__wrapper transparency-section__wrapper">
+    <div class="container">
+      <h1 class="section__title transparency-section__title">
+        Надежность и <span class="transparent">прозрачность</span>
+      </h1>
+      <div class="section transparency-section">
+        <div class="transparency-section__image">
+          <img
+            src="{{ '/assets/images/transparency-section-image.png'|theme }}" 
+            alt=""
+          />
+        </div>
+
+        <div class="transparency-section__content">
+          <div class="transparency-section__content__item">
+            <span class="transparency-section__content__item__number"
+              >[01]</span
+            >
+
+            <h3 class="transparency-section__content__item__title">
+              Вовлеченность в проект
+            </h3>
+
+            <p class="transparency-section__content__item__text">
+              Команда заинтересована в развитии вашего проекта, а не в
+              отработке часов. Мы любим нашу работу и с особым вниманием
+              продумываем каждую деталь.
+            </p>
+          </div>
+
+          <div class="transparency-section__content__item">
+            <span class="transparency-section__content__item__number"
+              >[02]</span
+            >
+
+            <h3 class="transparency-section__content__item__title">
+              Соблюдение договора NDA
+            </h3>
+
+            <p class="transparency-section__content__item__text">
+              Ваши данные надежно защищены. Вся информация сохраняется в
+              рамках нашей команды.
+            </p>
+          </div>
+
+          <div class="transparency-section__content__item">
+            <span class="transparency-section__content__item__number"
+              >[03]</span
+            >
+
+            <h3 class="transparency-section__content__item__title">
+              Мы ценим ваше время
+            </h3>
+
+            <p class="transparency-section__content__item__text">
+              Срок работы над проектом от 3 дней до 1 месяца.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% partial "portfolio" %}
+
+  <section class="section__wrapper talk-section__wrapper">
+    <div class="container">
+      <h1 class="section__title talk-section__title">о нас говорят</h1>
+
+      <div class="section talk-section">
+        <div class="talk-section__sponsor-image">
+          <img src="{{ 'assets/images/talk/sponsor.png'|theme }}" alt="" />
+        </div>
+
+        <div class="talk-section__content">
+          <p class="talk-section__content__text--small">
+            Risus, consequat cursus accumsan id leo nunc.
+          </p>
+
+          <p class="talk-section__content__text--small">
+            A et scelerisque sed gravida netus ultrices elementum.
+          </p>
+
+          <p class="talk-section__content__text">
+            Risus, consequat cursus accumsan id leo nunc. A et scelerisque
+            sed gravida netus ultrices elementum. Risus, consequat cursus
+            accumsan id leo nunc. A et scelerisque sed gravida netus
+            ultrices elementum.Risus, consequat cursus accumsan id leo nunc.
+            A et scelerisque sed gravida netus ultrices elementum.
+          </p>
+
+          <div class="talk-section__content__socials">
+            <div class="talk-section__content__socials__item">
+              <a
+                href="#"
+                class="talk-section__content__socials__item__icon"
+              >
+                <i class="mdi mdi-facebook"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="talk-section__slider__wrapper">
+          <section
+            class="splide talk-section__slider"
+            aria-label="Splide Basic HTML Example"
+          >
+            <div class="splide__track">
+              <ul class="splide__list">
+                <li class="splide__slide talk-section__slider__item">
+                  <img src="{{ 'assets/images/talk/document.png'|theme }}" alt="" />
+                </li>
+
+                <li class="splide__slide talk-section__slider__item">
+                  <img src="{{ 'assets/images/talk/document.png'|theme }}" alt="" />
+                </li>
+              </ul>
+            </div>
+
+            <div class="splide__arrows talk-section__slider__arrows">
+              <button
+                class="splide__arrow splide__arrow--prev talk-section__slider__arrow talk-section__slider__arrow--prev"
+              >
+                <i class="mdi mdi-chevron-left"></i>
+              </button>
+
+              <div class="talk-section__slider__pagination">
+                <span class="current"></span>
+                <span>/</span>
+                <span class="total">2</span>
+              </div>
+
+              <button
+                class="splide__arrow splide__arrow--next talk-section__slider__arrow talk-section__slider__arrow--next"
+              >
+                <i class="mdi mdi-chevron-right"></i>
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section__wrapper contact-section__wrapper">
+    <div class="container">
+      <div class="section contact-section">
+        <div class="contact-section__item">
+          <div class="contact-section__item__block">
+            <h2 class="contact-section__item__title">контакты</h2>
+            <p class="contact-section__item__text">
+              Адрес: Республика Казахстан, г. Алматы, ул. Кунаева 181 Б
+            </p>
+          </div>
+
+          <div class="contact-section__item__block right">
+            <h2 class="contact-section__item__title">
+              <a href="#">hello@netdev.kz</a>
+            </h2>
+            <h2 class="contact-section__item__title">
+              <a href="#">+7 (727) 3231333</a>
+            </h2>
+          </div>
+        </div>
+
+        <div class="contact-section__item">
+          <div class="contact-section__item__block">
+            <h2 class="contact-section__item__title">follow us</h2>
+          </div>
+
+          <div class="contact-section__item__block right">
+            <div class="contact-section__socials">
+              <div class="contact-section__socials__item">
+                <i class="mdi mdi-facebook"></i>
+              </div>
+              <div class="contact-section__socials__item">
+                <i class="mdi mdi-instagram"></i>
+              </div>
+              <div class="contact-section__socials__item">
+                <i class="mdi mdi-whatsapp"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section__wrapper form-section__wrapper">
+    <div class="container">
+      <div class="section form-section">
+        <div class="form-section__content">
+          <h2 class="section__title form-section__content__title">
+            закажите проект любой <span>сложности</span>
+          </h2>
+
+          <p class="section__text">
+            Закажите проект любой сложности и получите год технической
+            поддержки. Напишите нам, и мы обязательно свяжемся с вами в
+            течение 14 минут.
+          </p>
+        </div>
+
+        {% component 'contact' %}
+      </div>
+    </div>
+  </section>
+</main>
+
+
+{% partial "footer" %}

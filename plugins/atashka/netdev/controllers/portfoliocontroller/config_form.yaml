@@ -1,0 +1,10 @@
+name: PortfolioController
+form: $/atashka/netdev/models/portfolio/fields.yaml
+modelClass: Atashka\Netdev\Models\Portfolio
+defaultRedirect: atashka/netdev/portfoliocontroller
+create:
+    redirect: 'atashka/netdev/portfoliocontroller/update/:id'
+    redirectClose: atashka/netdev/portfoliocontroller
+update:
+    redirect: atashka/netdev/portfoliocontroller
+    redirectClose: atashka/netdev/portfoliocontroller

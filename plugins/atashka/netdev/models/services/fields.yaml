@@ -1,0 +1,17 @@
+fields:
+    name:
+        label: 'Service name'
+        span: full
+        type: text
+    data:
+        label: 'Service items'
+        prompt: 'Add new item'
+        style: default
+        span: auto
+        type: repeater
+        form:
+            fields:
+                item:
+                    label: item
+                    span: auto
+                    type: text

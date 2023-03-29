@@ -1,0 +1,71 @@
+.header {
+  display: grid;
+  grid-template-columns: 150px 1fr 225px;
+  align-items: center;
+  gap: 70px;
+  padding: 15px 0;
+
+  &__wrapper {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 9999;
+  }
+
+  &__logo {
+    width: 100%;
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+
+    @include transition;
+    &:hover {
+      opacity: 0.7;
+      @include transition;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    &__item {
+      a {
+        @include transition;
+      }
+
+      &:hover {
+        a {
+          @include transition;
+          color: var(--theme-primary-color);
+        }
+      }
+    }
+  }
+
+  &__panel {
+    display: flex;
+    align-items: center;
+  }
+
+  &__button {
+    background-color: var(--theme-primary-color);
+    color: white;
+    border: 0;
+    cursor: pointer;
+    border-radius: 8px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 300px;
+    width: 100%;
+    @include transition;
+    &:hover {
+      opacity: 0.7;
+      @include transition;
+    }
+  }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NETDEV</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css"
+      integrity="sha512-LX0YV/MWBEn2dwXCYgQHrpa9HJkwB+S+bnBpifSOTO1No27TqNMKYoAn6ff2FBh03THAzAiiCwQ+aPX+/Qt/Ow=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/splidejs/4.1.4/css/splide-core.min.css"
+      integrity="sha512-cSogJ0h5p3lhb//GYQRKsQAiwRku2tKOw/Rgvba47vg0+iOFrQ94iQbmAvRPF5+qkF8+gT7XBct233jFg1cBaQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="{{ 'assets/styles/main.css'|theme }}" />
+    {% styles %}
+  </head>
+  <body>
+
+{% page %}
+
+      <script
+      src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"
+      integrity="sha256-FZsW7H2V5X9TGinSjjwYJ419Xka27I8XPDmWryGlWtw="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      function initLandingSlider() {
+        function handlePagination(index) {
+          const current = document.querySelector(
+            ".landing-section__slider__pagination .current"
+          );
+
+          current.textContent = index + 1;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+          const splide = new Splide(".landing-section__slider", {
+            arrows: {
+              prev: document.querySelector(".splide__arrow--prev"),
+              next: document.querySelector(".splide__arrow--next"),
+            },
+            gap: 10,
+            pagination: false,
+          });
+
+          splide.on("mounted", () => {
+            handlePagination(0);
+          });
+
+          splide.on("move", (index) => {
+            handlePagination(index);
+          });
+          splide.mount();
+        });
+      }
+
+      function initAccordion() {
+        const accordionItems = document.querySelectorAll(
+          ".services-section__list__item__title"
+        );
+
+        for (const item of accordionItems) {
+          item.addEventListener("click", function (event) {
+            event.preventDefault();
+            item.parentElement.classList.toggle("is-active");
+          });
+        }
+      }
+
+      function initTalkSlider() {
+        function handlePagination(index) {
+          const current = document.querySelector(
+            ".talk-section__slider__pagination .current"
+          );
+
+          current.textContent = index + 1;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+          const splide = new Splide(".talk-section__slider", {
+            arrows: {
+              prev: document.querySelector(".splide__arrow--prev"),
+              next: document.querySelector(".splide__arrow--next"),
+            },
+            gap: 10,
+            pagination: false,
+          });
+
+          splide.on("mounted", () => {
+            handlePagination(0);
+          });
+
+          splide.on("move", (index) => {
+            handlePagination(index);
+          });
+          splide.mount();
+        });
+      }
+
+      initLandingSlider();
+      initAccordion();
+      initTalkSlider();
+    </script>
+    {% framework extras %}
+    {% scripts %}
+  </body>
+</html>

@@ -1,0 +1,4 @@
+title: PortfolioController
+modelClass: Atashka\Netdev\Models\Portfolio
+toolbar:
+    buttons: reorder_toolbar

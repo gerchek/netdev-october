@@ -1,0 +1,44 @@
+[viewBag]
+==
+<?php
+use Atashka\Netdev\Models\Portfolio;
+
+function onStart()
+{
+    $this['portfolio'] = Portfolio::orderBy('created_at', 'desc')->get();
+}
+?>
+==
+<section class="section__wrapper portfolio-section__wrapper">
+    <div class="container">
+      <h1 class="section__title">Портфолио</h1>
+
+      <div class="section portfolio-section">
+        <div class="portfolio-section__grid">
+
+          {% for data in portfolio %}
+          <div class="portfolio-section__grid__item">
+            <div class="portfolio-section__grid__item__image">
+              <img src="{{ data.image.path }}" alt="" />
+            </div>
+
+            <div class="portfolio-section__grid__item__tags">
+                {% for item in data.tags %}
+              <div class="portfolio-section__grid__item__tags__item">
+                {{ item.tag }}
+              </div>
+                {% endfor %}
+            </div>
+
+            <div class="portfolio-section__grid__item__content">
+              <h3 class="portfolio-section__grid__item__content__title">
+                {{ data.title }}
+              </h3>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </section>
