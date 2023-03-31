@@ -37,8 +37,8 @@
 
   &__title {
     font-size: clamp(2.125rem, 1.3438rem + 2.5vw, 2.75rem);
-    font-weight: 700;
     margin-bottom: 20px;
+    color: black;
   }
 
   &__text {
@@ -55,7 +55,6 @@
 
       &__title {
         font-size: clamp(1.375rem, 0.5938rem + 2.5vw, 2rem);
-        font-weight: bold;
         margin-bottom: 16px;
       }
 
@@ -97,10 +96,9 @@
     }
 
     &__pagination {
-      font-size: clamp(0.875rem, 0.4063rem + 1.5vw, 1.25rem);
+      font-size: clamp(1rem, 0.375rem + 2vw, 1.5rem);
       .current {
         color: var(--theme-primary-color);
-        font-weight: bold;
       }
     }
   }
@@ -109,6 +107,12 @@
 .services-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: flex-start;
+
+  &__content {
+    position: sticky;
+    top: calc(var(--header-height) + 10px);
+  }
 
   &__button {
     width: 210px;
@@ -205,7 +209,7 @@
 
 .transparency-section {
   &__wrapper {
-    background-color: var(--theme-primary-color);
+    background-color: var(--theme-section-bg-color);
     color: white;
   }
 
@@ -258,6 +262,10 @@
 }
 
 .portfolio-section {
+  &__wrapper {
+    padding-bottom: 180px;
+  }
+
   &__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -276,6 +284,7 @@
       &__image {
         cursor: pointer;
         width: 100%;
+        height: 400px;
         img {
           width: 100%;
         }
@@ -291,8 +300,16 @@
           color: #5e94ff;
           border: 1px solid #5e94ff;
           border-radius: 5px;
-          padding: 5px;
+          padding: 8px;
           font-size: clamp(0.75rem, 0.2813rem + 1.5vw, 1.125rem);
+          font-family: "PT-Root-UI", sans-serif;
+          cursor: pointer;
+          @include transition;
+
+          &:hover {
+            opacity: 0.6;
+            @include transition;
+          }
         }
       }
 
@@ -307,7 +324,7 @@
 
 .talk-section {
   &__wrapper {
-    background-color: var(--theme-primary-color);
+    background-color: var(--theme-section-bg-color);
     color: white;
   }
 
@@ -315,6 +332,19 @@
   grid-template-columns: 1fr 3fr 300px;
   align-items: center;
   gap: 50px;
+
+  &__content {
+    &__socials {
+      &__item {
+        &:hover {
+          a {
+            opacity: 0.6;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
 
   &__slider {
     overflow: hidden;
@@ -331,7 +361,8 @@
 
     &__arrows {
       @extend .landing-section__slider__arrows;
-      justify-content: center;
+      justify-content: flex-end;
+      padding-right: 3rem;
     }
 
     &__arrow {
@@ -400,7 +431,7 @@
         @include transition;
 
         &:hover {
-          opacity: 0.7;
+          color: var(--theme-primary-color);
           @include transition;
         }
       }
@@ -430,7 +461,7 @@
       @include transition;
 
       &:hover {
-        opacity: 0.7;
+        color: var(--theme-primary-color);
         @include transition;
       }
     }
@@ -440,10 +471,16 @@
 .form-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: flex-start;
   gap: 100px;
 
   &__wrapper {
     background-color: #f7f7f7;
+  }
+
+  &__content {
+    position: sticky;
+    top: calc(var(--header-height) + 10px);
   }
 
   &__form {

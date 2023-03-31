@@ -1,11 +1,26 @@
 /* CONFIG */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,500;1,500&display=swap");
 :root {
   --theme-primary-color: #0000fe;
+  --theme-section-bg-color: #0000a4;
   --theme-text-color: #1d1f21;
-} /* BASE */
+  --header-height: 90px;
+}
+
+/* BASE */
 @font-face {
   font-family: "Bahnschrift";
   src: url("../fonts/Bahnschrift/Bahnschrift.ttf");
+}
+@font-face {
+  font-family: "PT-Root-UI";
+  src: url("../fonts/PT-Root-UI/PT-Root-UI_Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "PT-Root-UI";
+  src: url("../fonts/PT-Root-UI/PT-Root-UI_Bold.ttf");
+  font-weight: 700;
 }
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -158,9 +173,15 @@ body {
   color: var(--theme-text-color);
   font-size: clamp(0.75rem, 0.4375rem + 1vw, 1rem);
   position: relative;
+  font-weight: 400;
 }
 body a {
   color: var(--theme-text-color);
+  transition: all 0.2s ease-in-out;
+}
+body a:hover {
+  color: var(--theme-primary-color);
+  transition: all 0.2s ease-in-out;
 }
 body button,
 body input,
@@ -169,6 +190,7 @@ body select {
   font-family: Bahnschrift, sans-serif;
   color: var(--theme-text-color);
   font-size: clamp(0.75rem, 0.4375rem + 1vw, 1rem);
+  outline-color: var(--theme-primary-color);
 }
 
 .container {
@@ -191,6 +213,9 @@ body select {
   top: 0;
   background-color: white;
   z-index: 9999;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
 }
 .header__logo {
   width: 100%;
@@ -287,6 +312,14 @@ body select {
   justify-content: center;
   max-width: 1360px;
   margin: 0 auto;
+  font-family: "PT-Root-UI", sans-serif;
+  font-weight: 700;
+}
+
+.slider__pagination {
+  font-family: "IBM Plex Sans", sans-serif;
+  display: flex;
+  font-weight: 500;
 }
 
 /* PAGES */
@@ -323,8 +356,8 @@ body select {
 }
 .landing-section__title {
   font-size: clamp(2.125rem, 1.3438rem + 2.5vw, 2.75rem);
-  font-weight: 700;
   margin-bottom: 20px;
+  color: black;
 }
 .landing-section__text {
   font-size: clamp(1.125rem, 0.6563rem + 1.5vw, 1.5rem);
@@ -338,7 +371,6 @@ body select {
 }
 .landing-section__slider__item__title {
   font-size: clamp(1.375rem, 0.5938rem + 2.5vw, 2rem);
-  font-weight: bold;
   margin-bottom: 16px;
 }
 .landing-section__slider__item__text {
@@ -374,16 +406,20 @@ body select {
   gap: 50px;
 }
 .landing-section__slider__pagination {
-  font-size: clamp(0.875rem, 0.4063rem + 1.5vw, 1.25rem);
+  font-size: clamp(1rem, 0.375rem + 2vw, 1.5rem);
 }
 .landing-section__slider__pagination .current {
   color: var(--theme-primary-color);
-  font-weight: bold;
 }
 
 .services-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: flex-start;
+}
+.services-section__content {
+  position: sticky;
+  top: calc(var(--header-height) + 10px);
 }
 .services-section__button {
   width: 210px;
@@ -466,7 +502,7 @@ body select {
   gap: 50px;
 }
 .transparency-section__wrapper {
-  background-color: var(--theme-primary-color);
+  background-color: var(--theme-section-bg-color);
   color: white;
 }
 .transparency-section__image {
@@ -505,6 +541,9 @@ body select {
   font-size: clamp(0.875rem, 0.5625rem + 1vw, 1.125rem);
 }
 
+.portfolio-section__wrapper {
+  padding-bottom: 180px;
+}
 .portfolio-section__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -522,6 +561,7 @@ body select {
 .portfolio-section__grid__item__image {
   cursor: pointer;
   width: 100%;
+  height: 400px;
 }
 .portfolio-section__grid__item__image img {
   width: 100%;
@@ -536,8 +576,15 @@ body select {
   color: #5e94ff;
   border: 1px solid #5e94ff;
   border-radius: 5px;
-  padding: 5px;
+  padding: 8px;
   font-size: clamp(0.75rem, 0.2813rem + 1.5vw, 1.125rem);
+  font-family: "PT-Root-UI", sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.portfolio-section__grid__item__tags__item:hover {
+  opacity: 0.6;
+  transition: all 0.2s ease-in-out;
 }
 .portfolio-section__grid__item__content__title {
   font-size: clamp(1.5rem, 0.5625rem + 3vw, 2.25rem);
@@ -550,8 +597,12 @@ body select {
   gap: 50px;
 }
 .talk-section__wrapper {
-  background-color: var(--theme-primary-color);
+  background-color: var(--theme-section-bg-color);
   color: white;
+}
+.talk-section__content__socials__item:hover a {
+  opacity: 0.6;
+  color: #fff;
 }
 .talk-section__slider {
   overflow: hidden;
@@ -565,7 +616,8 @@ body select {
   justify-content: center;
 }
 .talk-section__slider__arrows {
-  justify-content: center;
+  justify-content: flex-end;
+  padding-right: 3rem;
 }
 .talk-section__slider__arrow {
   background-color: white;
@@ -620,7 +672,7 @@ body select {
   transition: all 0.2s ease-in-out;
 }
 .contact-section__item__title a:hover {
-  opacity: 0.7;
+  color: var(--theme-primary-color);
   transition: all 0.2s ease-in-out;
 }
 .contact-section__item__text {
@@ -642,17 +694,22 @@ body select {
   transition: all 0.2s ease-in-out;
 }
 .contact-section__socials__item:hover {
-  opacity: 0.7;
+  color: var(--theme-primary-color);
   transition: all 0.2s ease-in-out;
 }
 
 .form-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: flex-start;
   gap: 100px;
 }
 .form-section__wrapper {
   background-color: #f7f7f7;
+}
+.form-section__content {
+  position: sticky;
+  top: calc(var(--header-height) + 10px);
 }
 .form-section__form {
   display: flex;

@@ -1,4 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,500;1,500&display=swap");
+
 @font-face {
-    font-family: 'Bahnschrift';
-    src: url('../fonts/Bahnschrift/Bahnschrift.ttf');
+  font-family: "Bahnschrift";
+  src: url("../fonts/Bahnschrift/Bahnschrift.ttf");
+}
+
+@font-face {
+  font-family: "PT-Root-UI";
+  src: url("../fonts/PT-Root-UI/PT-Root-UI_Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "PT-Root-UI";
+  src: url("../fonts/PT-Root-UI/PT-Root-UI_Bold.ttf");
+  font-weight: 700;
 }

@@ -10,6 +10,9 @@
     top: 0;
     background-color: white;
     z-index: 9999;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
   }
 
   &__logo {
