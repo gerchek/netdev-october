@@ -10,6 +10,10 @@ navigation:
         url: atashka/netdev/servicecontroller
         icon: icon-server
         sideMenu:
+            side-menu-item3:
+                label: Service
+                url: atashka/netdev/servicecontroller
+                icon: icon-server
             side-menu-item:
                 label: Portfolio
                 url: atashka/netdev/portfoliocontroller

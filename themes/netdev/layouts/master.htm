@@ -1,3 +1,4 @@
+==
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,34 +36,46 @@
     ></script>
 
     <script>
-      function initLandingSlider() {
+      function initSlider(sliderClass) {
+        const sliderElement = document.querySelector(sliderClass);
+        const totalItemCount = Array.from(
+          sliderElement.querySelectorAll(".splide__slide")
+        ).length;
+
         function handlePagination(index) {
-          const current = document.querySelector(
-            ".landing-section__slider__pagination .current"
+          const paginationWrapper = sliderElement.querySelector(
+            ".slider__pagination"
           );
 
+          const current = paginationWrapper.querySelector(".current");
+          const total = paginationWrapper.querySelector(".total");
+
           current.textContent = index + 1;
+          total.textContent = totalItemCount;
         }
 
-        document.addEventListener("DOMContentLoaded", function () {
-          const splide = new Splide(".landing-section__slider", {
-            arrows: {
-              prev: document.querySelector(".splide__arrow--prev"),
-              next: document.querySelector(".splide__arrow--next"),
-            },
-            gap: 10,
-            pagination: false,
-          });
-
-          splide.on("mounted", () => {
-            handlePagination(0);
-          });
-
-          splide.on("move", (index) => {
-            handlePagination(index);
-          });
-          splide.mount();
+        const splide = new Splide(sliderClass, {
+          arrows: {
+            prev: document.querySelector(".splide__arrow--prev"),
+            next: document.querySelector(".splide__arrow--next"),
+          },
+          gap: 10,
+          pagination: false,
         });
+
+        splide.on("mounted", () => {
+          handlePagination(0);
+        });
+
+        splide.on("move", (index) => {
+          handlePagination(index);
+        });
+        splide.mount();
+      }
+
+      function initSliders() {
+        const sliders = [".landing-section__slider", ".talk-section__slider"];
+        sliders.map((e) => initSlider(e));
       }
 
       function initAccordion() {
@@ -78,39 +91,14 @@
         }
       }
 
-      function initTalkSlider() {
-        function handlePagination(index) {
-          const current = document.querySelector(
-            ".talk-section__slider__pagination .current"
-          );
-
-          current.textContent = index + 1;
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-          const splide = new Splide(".talk-section__slider", {
-            arrows: {
-              prev: document.querySelector(".splide__arrow--prev"),
-              next: document.querySelector(".splide__arrow--next"),
-            },
-            gap: 10,
-            pagination: false,
-          });
-
-          splide.on("mounted", () => {
-            handlePagination(0);
-          });
-
-          splide.on("move", (index) => {
-            handlePagination(index);
-          });
-          splide.mount();
-        });
+      function init() {
+        initSliders();
+        initAccordion();
       }
 
-      initLandingSlider();
-      initAccordion();
-      initTalkSlider();
+      document.addEventListener("DOMContentLoaded", function () {
+        init();
+      });
     </script>
     {% framework extras %}
     {% scripts %}

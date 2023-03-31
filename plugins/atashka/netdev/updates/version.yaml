@@ -15,3 +15,6 @@
 1.0.6:
     - 'Created table atashka_netdev_our_services'
     - builder_table_create_atashka_netdev_our_services.php
+1.0.7:
+    - 'Updated table atashka_netdev_services'
+    - builder_table_update_atashka_netdev_services.php
