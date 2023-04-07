@@ -1,0 +1,24 @@
+fields:
+    text:
+        label: 'Rich editor'
+        size: large
+        span: full
+        type: richeditor
+    logo:
+        label: Logo
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    file:
+        label: File
+        mode: file
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload

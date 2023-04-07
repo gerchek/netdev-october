@@ -22,6 +22,10 @@ navigation:
                 label: 'Our services'
                 url: atashka/netdev/ourservicescontroller
                 icon: icon-list-ul
+            side-menu-item4:
+                label: 'Talk section'
+                url: atashka/netdev/talksectioncontroller
+                icon: icon-align-center
     main-menu-item2:
         label: Contact
         url: atashka/netdev/contactcontroller

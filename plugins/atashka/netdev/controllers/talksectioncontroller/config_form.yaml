@@ -1,0 +1,10 @@
+name: TalkSectionController
+form: $/atashka/netdev/models/talksection/fields.yaml
+modelClass: Atashka\Netdev\Models\TalkSection
+defaultRedirect: atashka/netdev/talksectioncontroller
+create:
+    redirect: 'atashka/netdev/talksectioncontroller/update/:id'
+    redirectClose: atashka/netdev/talksectioncontroller
+update:
+    redirect: atashka/netdev/talksectioncontroller
+    redirectClose: atashka/netdev/talksectioncontroller

@@ -18,3 +18,9 @@
 1.0.7:
     - 'Updated table atashka_netdev_services'
     - builder_table_update_atashka_netdev_services.php
+1.0.8:
+    - 'Updated table atashka_netdev_portfolio'
+    - builder_table_update_atashka_netdev_portfolio.php
+1.0.9:
+    - 'Created table atashka_netdev_talk_section'
+    - builder_table_create_atashka_netdev_talk_section.php

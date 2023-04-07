@@ -1,0 +1,4 @@
+title: TalkSectionController
+modelClass: Atashka\Netdev\Models\TalkSection
+toolbar:
+    buttons: reorder_toolbar
