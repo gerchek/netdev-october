@@ -6,21 +6,58 @@
   padding: 15px 0;
 
   &__wrapper {
-    position: sticky;
-    top: 0;
     background-color: white;
     z-index: 9999;
     height: var(--header-height);
     display: flex;
     align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+
+    &.is-transparent {
+      background-color: transparent;
+
+      .header {
+        a {
+          color: white;
+        }
+
+        &__logo {
+          background-image: url("../images/logo-white.svg");
+        }
+
+        &__button {
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.17));
+          color: var(--theme-primary-color);
+          background-color: white;
+        }
+
+        &__nav {
+          &__item {
+            &:hover {
+              opacity: 0.7;
+              @include transition;
+              a {
+                color: white;
+                @include transition;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   &__logo {
     width: 100%;
-    img {
-      width: 100%;
-      object-fit: contain;
-    }
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url("../images/logo.svg");
 
     @include transition;
     &:hover {
