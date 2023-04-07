@@ -15,7 +15,7 @@ fields:
         type: fileupload
     file:
         label: File
-        mode: file
+        mode: image
         useCaption: true
         thumbOptions:
             mode: crop
