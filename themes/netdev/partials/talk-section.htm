@@ -5,7 +5,7 @@ use Atashka\Netdev\Models\TalkSection;
 
 function onStart()
 {
-    $this['talksection'] = TalkSection::where('id', 1)->get();
+    $this['talksection'] = TalkSection::all();
     // dd($this['talksection']);
 }
 ?>
