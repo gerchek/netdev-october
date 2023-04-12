@@ -40,3 +40,46 @@ body {
   width: 100%;
   padding: 0 10px;
 }
+
+.list {
+  li {
+    padding-left: 1rem;
+    position: relative;
+    display: flex;
+    line-height: 1.2;
+    margin-bottom: 10px;
+
+    &::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      background-color: var(--theme-text-color);
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 20%;
+    }
+  }
+}
+
+.button {
+  background-color: var(--theme-primary-color);
+  border: 0;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  padding: 0 20px;
+  font-size: clamp(1rem, 0.6875rem + 1vw, 1.25rem);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.17));
+  gap: 5px;
+  @include transition;
+  &:hover {
+    opacity: 0.7;
+    @include transition;
+  }
+}

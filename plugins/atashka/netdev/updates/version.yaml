@@ -24,3 +24,15 @@
 1.0.9:
     - 'Created table atashka_netdev_talk_section'
     - builder_table_create_atashka_netdev_talk_section.php
+1.0.10:
+    - 'Updated table atashka_netdev_portfolio'
+    - builder_table_update_atashka_netdev_portfolio_2.php
+1.0.11:
+    - 'Drop table atashka_netdev_our_services'
+    - builder_table_delete_atashka_netdev_our_services.php
+1.0.12:
+    - 'Created table atashka_netdev_our_services'
+    - builder_table_create_atashka_netdev_our_services_2.php
+1.0.13:
+    - 'Updated table atashka_netdev_our_services'
+    - builder_table_update_atashka_netdev_our_services.php

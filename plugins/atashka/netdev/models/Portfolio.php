@@ -22,11 +22,15 @@ class Portfolio extends Model
     ];
 
     public $attachOne = [
-        'image' => 'System\Models\File'
+        'indeximage' => 'System\Models\File',
+        'rightimage' => 'System\Models\File',
+        'leftimage' => 'System\Models\File',
+        'bottomimage' => 'System\Models\File'
     ];
 
-    protected $fillable = ['tags'];
+    protected $fillable = ['tags','aboutsection'];
     protected $casts = [
         'tags' => 'json',
+        'aboutsection' => 'json',
     ];
 }

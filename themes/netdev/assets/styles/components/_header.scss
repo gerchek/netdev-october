@@ -26,7 +26,7 @@
         }
 
         &__logo {
-          background-image: url("../images/logo-white.svg");
+          background-image: url("../images/index/logo-white.svg");
         }
 
         &__button {
@@ -57,7 +57,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    background-image: url("../images/logo.svg");
+    background-image: url("../images/index/logo.svg");
 
     @include transition;
     &:hover {

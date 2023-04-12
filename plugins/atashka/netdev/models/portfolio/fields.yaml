@@ -15,8 +15,68 @@ fields:
                     label: Tag
                     span: auto
                     type: text
-    image:
-        label: Image
+    aboutsection:
+        label: 'About section'
+        prompt: 'Add new section'
+        style: default
+        span: auto
+        type: repeater
+        form:
+            fields:
+                item:
+                    label: item
+                    span: auto
+                    type: text
+    project:
+        label: ПРОЕКТ
+        span: auto
+        type: text
+    done:
+        label: ВЫПОЛНЕНО
+        span: auto
+        type: text
+    deadline:
+        label: 'СРОК ВЫПОЛНЕНИЯ'
+        span: auto
+        type: text
+    year:
+        label: ГОД
+        span: auto
+        type: text
+    sectiontitle:
+        label: 'Section title'
+        size: large
+        span: full
+        type: textarea
+    indeximage:
+        label: indeximage
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    rightimage:
+        label: rightimage
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    leftimage:
+        label: leftimage
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    bottomimage:
+        label: bottomimage
         mode: image
         useCaption: true
         thumbOptions:

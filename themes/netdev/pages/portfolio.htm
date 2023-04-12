@@ -1,0 +1,157 @@
+url = "/portfolio"
+layout = "master"
+title = "portfolio"
+
+[contact]
+==
+<?php
+use Atashka\Netdev\Models\Portfolio;
+
+function onStart()
+{
+    $this['portfolio'] = Portfolio::orderBy('created_at', 'desc')->get();
+}
+?>
+==
+{% partial "header" %}
+
+    <main>
+      <section class="section__wrapper portfolio-main__landing__wrapper">
+        <div class="container">
+          <div class="section portfolio-main__landing pt-8">
+            <h1 class="portfolio-main__landing__title mb-6 uppercase">
+              <span>Уверенный старт</span> и успешное развитие вашего бизнеса в
+              интернете
+            </h1>
+
+            <div class="portfolio-main__landing__content gap-8">
+              <div class="portfolio-main__landing__image">
+                <img src="{{ 'assets/images/portfolio-main/landing.png'|theme }}" alt="" />
+              </div>
+
+              <div class="portfolio-main__landing__text pt-4 gap-6">
+                <p>
+                  За 5 лет мы создали более 100 успешных проектов, таких как
+                  сайты, веб-приложения, порталы и CRM-системы. Мы гордимся
+                  нашим опытом и профессионализмом нашей команды экспертов в
+                  области веб-разработки.
+                </p>
+
+                <button class="button">
+                  <span>Презентация</span>
+
+                  <i class="mdi mdi-download"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section__wrapper portfolio-main__cases__wrapper">
+        <div class="container">
+          <div class="section portfolio-main__cases">
+            <div
+              class="portfolio-main__cases__header flex align-items-center justify-content-end relative"
+            >
+              <img
+                class="absolute left-0"
+                src="{{ 'assets/images/portfolio-default/arrow-about-text.png'|theme }}"
+                alt=""
+              />
+
+              <h2 class="portfolio-main__cases__title">
+                Ключевые кейсы в области Web-разработки
+              </h2>
+            </div>
+
+            <div class="portfolio-main__cases__items">
+            {% for data in portfolio %}
+              <div class="portfolio-main__cases__item flex flex-column gap-4">
+                <div class="portfolio-main__cases__item__image">
+                  <img src="{{ data.indeximage.path }}" alt="" />
+
+                  <a href="{{ 'portfolio-item'|page({ id: data.id }) }}">
+                    <div class="arrow">
+                      <i class="mdi mdi-chevron-right"></i>
+                    </div>
+                  </a>
+                  
+                </div>
+
+                <p class="portfolio-main__cases__item__title">
+                  {{ data.title }}
+                </p>
+              </div>
+            {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+        <section class="section__wrapper contact-section__wrapper">
+    <div class="container">
+      <div class="section contact-section">
+        <div class="contact-section__item">
+          <div class="contact-section__item__block">
+            <h2 class="contact-section__item__title">контакты</h2>
+            <p class="contact-section__item__text">
+              Адрес: Республика Казахстан, г. Алматы, ул. Кунаева 181 Б
+            </p>
+          </div>
+
+          <div class="contact-section__item__block right">
+            <h2 class="contact-section__item__title">
+              <a href="#">hello@netdev.kz</a>
+            </h2>
+            <h2 class="contact-section__item__title">
+              <a href="#">+7 (727) 3231333</a>
+            </h2>
+          </div>
+        </div>
+
+        <div class="contact-section__item">
+          <div class="contact-section__item__block">
+            <h2 class="contact-section__item__title">follow us</h2>
+          </div>
+
+          <div class="contact-section__item__block right">
+            <div class="contact-section__socials">
+              <div class="contact-section__socials__item">
+                <i class="mdi mdi-facebook"></i>
+              </div>
+              <div class="contact-section__socials__item">
+                <i class="mdi mdi-instagram"></i>
+              </div>
+              <div class="contact-section__socials__item">
+                <i class="mdi mdi-whatsapp"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section__wrapper form-section__wrapper">
+    <div class="container">
+      <div class="section form-section">
+        <div class="form-section__content">
+          <h2 class="section__title form-section__content__title">
+            закажите проект любой <span>сложности</span>
+          </h2>
+
+          <p class="section__text">
+            Закажите проект любой сложности и получите год технической
+            поддержки. Напишите нам, и мы обязательно свяжемся с вами в
+            течение 14 минут.
+          </p>
+        </div>
+
+        {% component 'contact' %}
+      </div>
+    </div>
+  </section>
+    </main>
+
+
+{% partial "footer" %}

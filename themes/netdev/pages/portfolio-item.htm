@@ -1,0 +1,236 @@
+url = "/portfolio-item/:id"
+layout = "master"
+title = "portfolio-item"
+==
+<?php
+use Atashka\Netdev\Models\Portfolio;
+
+function onStart()
+{
+    $postId = $this->param('id');
+    $this['post'] = Portfolio::find($postId);
+    $this['latest'] = Portfolio::latest()->limit(3)->get();
+    //dd($this['post']->rightimage->path);
+}
+?>
+==
+{% partial "header" %}
+    <main>
+      <section class="section__wrapper main-section__wrapper">
+        <div class="container">
+          <div class="section main-section">
+            <h1 class="main-section__title">
+              {{ post.title }}
+            </h1>
+
+            <div class="main-section__timeline__wrapper">
+              <div class="main-section__timeline__line"></div>
+
+              <div class="main-section__timeline">
+                <div class="main-section__timeline__item">
+                  <span>ПРОЕКТ</span>
+
+                  <p>{{ post.project }}</p>
+                </div>
+
+                <div class="main-section__timeline__item">
+                  <span>ВЫПОЛНЕНО</span>
+
+                  <p>{{ post.done }}</p>
+                </div>
+
+                <div class="main-section__timeline__item">
+                  <span>СРОК ВЫПОЛНЕНИЯ</span>
+
+                  <p>{{ post.deadline }}</p>
+                </div>
+
+                <div class="main-section__timeline__item">
+                  <span>ГОД</span>
+
+                  <p>{{ post.year }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section__wrapper about-section__wrapper">
+        <div class="container">
+          <div class="section about-section">
+            <div class="about-section__top">
+              <div class="about-section__content">
+                <h2 class="about-section__title">
+                  {{ post.sectiontitle }}
+                </h2>
+
+                <div class="about-section__text">
+                  <div class="about-section__text__arrow"></div>
+
+                  <ul class="list">
+                  {% for item in post.aboutsection %}
+                    <li>
+                      {{ item.item }}
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-section__gallery">
+              <div class="about-section__gallery__item">
+                <img src="{{ post.rightimage.path }}" alt="" />
+              </div>
+
+              <div class="about-section__gallery__item">
+                <img src="{{ post.leftimage.path }}" alt="" />
+              </div>
+
+              <div class="about-section__gallery__item">
+                <img src="{{ post.bottomimage.path }}" alt="" />
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section__wrapper checkout-section__wrapper">
+        <div class="container">
+          <div class="section checkout-section">
+            <div class="checkout-section__header">
+              <div>
+                <button class="button">Другие проекты</button>
+              </div>
+
+              <h2 class="checkout-section__title">
+                CHECK OUT <span>SOME MORE</span>
+              </h2>
+            </div>
+
+            <div class="checkout-section__catalog">
+            {% for item in latest %}
+              <div class="checkout-section__catalog__item">
+                <div class="checkout-section__catalog__item__image">
+                  <img
+                    src="{{ item.indeximage.path }}"
+                    alt=""
+                  />
+                  <a href="{{ 'portfolio-item'|page({ id: item.id }) }}">
+                    <div class="checkout-section__catalog__item__button">
+                      <i class="mdi mdi-chevron-right"></i>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="checkout-section__catalog__item__content">
+                  <a href="{{ 'portfolio-item'|page({ id: item.id }) }}">
+                    <h3 class="checkout-section__catalog__item__content__title">
+                      {{ item.title }}
+                    </h3>
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section__wrapper contact-section__wrapper">
+        <div class="container">
+          <div class="section contact-section">
+            <div class="contact-section__item">
+              <div class="contact-section__item__block">
+                <h2 class="contact-section__item__title">контакты</h2>
+                <p class="contact-section__item__text">
+                  Адрес: Республика Казахстан, г. Алматы, ул. Кунаева 181 Б
+                </p>
+              </div>
+
+              <div class="contact-section__item__block right">
+                <h2 class="contact-section__item__title">
+                  <a href="#">hello@netdev.kz</a>
+                </h2>
+                <h2 class="contact-section__item__title">
+                  <a href="#">+7 (727) 3231333</a>
+                </h2>
+              </div>
+            </div>
+
+            <div class="contact-section__item">
+              <div class="contact-section__item__block">
+                <h2 class="contact-section__item__title">follow us</h2>
+              </div>
+
+              <div class="contact-section__item__block right">
+                <div class="contact-section__socials">
+                  <div class="contact-section__socials__item">
+                    <i class="mdi mdi-facebook"></i>
+                  </div>
+                  <div class="contact-section__socials__item">
+                    <i class="mdi mdi-instagram"></i>
+                  </div>
+                  <div class="contact-section__socials__item">
+                    <i class="mdi mdi-whatsapp"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section__wrapper form-section__wrapper">
+        <div class="container">
+          <div class="section form-section">
+            <div class="form-section__content">
+              <h2 class="section__title form-section__content__title">
+                закажите проект любой <span>сложности</span>
+              </h2>
+
+              <p class="section__text">
+                Закажите проект любой сложности и получите год технической
+                поддержки. Напишите нам, и мы обязательно свяжемся с вами в
+                течение 14 минут.
+              </p>
+            </div>
+
+            <div class="form-section__form__wrapper">
+              <form class="form-section__form">
+                <div class="form-section__form__input">
+                  <label for="name">Ваше имя</label>
+
+                  <input id="name" type="text" />
+                </div>
+
+                <div class="form-section__form__input">
+                  <label for="email">Ваше e-mail</label>
+
+                  <input id="email" type="email" />
+                </div>
+
+                <div class="form-section__form__input">
+                  <label for="message">Ваше сообщение</label>
+
+                  <textarea id="message" type="text"></textarea>
+                </div>
+
+                <p class="form-section__form__text">
+                  Мы не продаем базы и не любим СПАМ так же, как и вы. Можете
+                  быть уверены, что ваши контакты находятся в полной
+                  безопасности.
+                </p>
+
+                <button class="form-section__form__button">
+                  Отправить сообщение
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    {% partial "footer" %}
