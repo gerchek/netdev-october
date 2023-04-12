@@ -21,7 +21,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ 'assets/styles/primeflex.min.css'|theme }}" />
     <link rel="stylesheet" href="{{ 'assets/styles/main.css'|theme }}" />
     {% styles %}
@@ -29,6 +29,16 @@
   <body>
 
 {% page %}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({
+        debounceDelay: 150,
+        throttleDelay: 100,
+        offset: 150,
+        duration: 1000,
+      });
+      </script>
+
 
       <script
       src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"

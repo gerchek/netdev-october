@@ -19,7 +19,11 @@ function onStart()
       <section class="section__wrapper main-section__wrapper">
         <div class="container">
           <div class="section main-section">
-            <h1 class="main-section__title">
+            <h1
+              class="main-section__title"
+              data-aos="fade-right"
+              data-aos-delay="500"
+            >
               {{ post.title }}
             </h1>
 
@@ -27,25 +31,41 @@ function onStart()
               <div class="main-section__timeline__line"></div>
 
               <div class="main-section__timeline">
-                <div class="main-section__timeline__item">
+                <div
+                  class="main-section__timeline__item"
+                  data-aos="fade-up"
+                  data-aos-delay="1000"
+                >
                   <span>ПРОЕКТ</span>
 
                   <p>{{ post.project }}</p>
                 </div>
 
-                <div class="main-section__timeline__item">
+                <div
+                  class="main-section__timeline__item"
+                  data-aos="fade-up"
+                  data-aos-delay="1200"
+                >
                   <span>ВЫПОЛНЕНО</span>
 
                   <p>{{ post.done }}</p>
                 </div>
 
-                <div class="main-section__timeline__item">
+                <div
+                  class="main-section__timeline__item"
+                  data-aos="fade-up"
+                  data-aos-delay="1400"
+                >
                   <span>СРОК ВЫПОЛНЕНИЯ</span>
 
                   <p>{{ post.deadline }}</p>
                 </div>
 
-                <div class="main-section__timeline__item">
+                <div
+                  class="main-section__timeline__item"
+                  data-aos="fade-up"
+                  data-aos-delay="1600"
+                >
                   <span>ГОД</span>
 
                   <p>{{ post.year }}</p>
@@ -61,11 +81,11 @@ function onStart()
           <div class="section about-section">
             <div class="about-section__top">
               <div class="about-section__content">
-                <h2 class="about-section__title">
+                <h2 class="about-section__title" data-aos="fade-up">
                   {{ post.sectiontitle }}
                 </h2>
 
-                <div class="about-section__text">
+                <div class="about-section__text" data-aos="fade-up">
                   <div class="about-section__text__arrow"></div>
 
                   <ul class="list">
@@ -80,15 +100,15 @@ function onStart()
             </div>
 
             <div class="about-section__gallery">
-              <div class="about-section__gallery__item">
+              <div class="about-section__gallery__item" data-aos="fade-right">
                 <img src="{{ post.rightimage.path }}" alt="" />
               </div>
 
-              <div class="about-section__gallery__item">
+              <div class="about-section__gallery__item" data-aos="fade-left">
                 <img src="{{ post.leftimage.path }}" alt="" />
               </div>
 
-              <div class="about-section__gallery__item">
+              <div class="about-section__gallery__item" data-aos="fade-up">
                 <img src="{{ post.bottomimage.path }}" alt="" />
               </div>
 
@@ -101,11 +121,11 @@ function onStart()
         <div class="container">
           <div class="section checkout-section">
             <div class="checkout-section__header">
-              <div>
+              <div data-aos="fade-right">
                 <button class="button">Другие проекты</button>
               </div>
 
-              <h2 class="checkout-section__title">
+              <h2 class="checkout-section__title" data-aos="fade-left">
                 CHECK OUT <span>SOME MORE</span>
               </h2>
             </div>
@@ -233,4 +253,17 @@ function onStart()
         </div>
       </section>
     </main>
+
     {% partial "footer" %}
+
+        <script>
+      const header = document.querySelector(".header__wrapper");
+
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 0) {
+          header.classList.remove("is-transparent");
+        } else {
+          header.classList.add("is-transparent");
+        }
+      });
+    </script>

@@ -864,10 +864,23 @@ body select {
   bottom: 0;
   width: 100%;
 }
+@keyframes grow {
+  from {
+    opacity: 0;
+    width: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
 .main-section__timeline__line {
   height: 1px;
   width: 100%;
   background-color: white;
+  animation: grow 1s ease-in-out forwards;
+  animation-delay: 1000ms;
+  opacity: 0;
 }
 .main-section__timeline__item {
   font-size: clamp(1.125rem, 0.6563rem + 1.5vw, 1.5rem);

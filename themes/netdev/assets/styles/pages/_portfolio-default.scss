@@ -35,10 +35,24 @@
     align-items: center;
     justify-content: space-between;
 
+    @keyframes grow {
+      from {
+        opacity: 0;
+        width: 0;
+      }
+      to {
+        width: 100%;
+        opacity: 1;
+      }
+    }
+
     &__line {
       height: 1px;
       width: 100%;
       background-color: white;
+      animation: grow 1s ease-in-out forwards;
+      animation-delay: 1000ms;
+      opacity: 0;
     }
 
     &__item {
@@ -55,7 +69,6 @@
 }
 
 .about-section {
-
   &__top {
     display: grid;
     gap: 40px;
